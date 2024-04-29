@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: app
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://dpg-conr05n79t8c73bguo4g-a.frankfurt-postgres.render.com/kanban_9r0r
+      - SPRING_DATASOURCE_USERNAME=student
+      - SPRING_DATASOURCE_PASSWORD=BjCkCVogveTL1VMnvfxxl0O3MB3vDFrW
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
