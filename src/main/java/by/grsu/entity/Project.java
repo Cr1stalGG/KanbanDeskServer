@@ -32,7 +32,6 @@ public class    Project {
     private String name;
     private String description;
     @ManyToOne
-    @JoinColumn(name = "account_id")
     private Account owner;
     @ManyToMany
     private List<Account> members;
