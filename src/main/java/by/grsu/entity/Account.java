@@ -1,6 +1,7 @@
 package by.grsu.entity;
 
 import by.grsu.entity.enums.Role;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -31,7 +32,7 @@ public class Account {
     private String firstname;
     private String lastname;
     private Role role;
-    @OneToMany
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Project> ownProjects;
     @ManyToMany
     private List<Project> workingProjects;
