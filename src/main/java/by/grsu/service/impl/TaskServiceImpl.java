@@ -42,7 +42,5 @@ public class TaskServiceImpl implements TaskService {
 
         Panel fromPanel = panelRepository.findById(moveTaskDto.getFromPanelId());
         Panel toPanel = panelRepository.findById(moveTaskDto.getToPanelId());
-
-        fromPanel.
     }
 }
