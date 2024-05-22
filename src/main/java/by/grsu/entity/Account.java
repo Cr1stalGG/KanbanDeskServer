@@ -33,7 +33,7 @@ public class Account {
     private String firstname;
     private String lastname;
     private Role role;
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany
     private List<Project> ownProjects;
     @ManyToMany
     private List<Project> workingProjects;
