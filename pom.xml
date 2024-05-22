@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.0.5</version>
 		<relativePath/>
 	</parent>
 
@@ -59,6 +59,12 @@
 			<version>${jsoup.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.4.Final</version>
+		</dependency>
+
 
 		<!--JWT-->
 		<dependency>
@@ -79,21 +85,12 @@
 			<version>${jwt.api.version}</version>
 		</dependency>
 
-
-		<!--TESTS-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
 		<!--SWAGGER-->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>${spring-doc.version}</version>
-	</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springdoc</groupId>-->
+<!--			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--			<version>${spring-doc.version}</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

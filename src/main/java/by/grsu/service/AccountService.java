@@ -7,6 +7,7 @@ import by.grsu.dto.account.AccountFullDto;
 import java.util.List;
 
 public interface AccountService {
+    AccountFullDto findByLogin(String login);
     AccountFullDto findById(long id);
     List<AccountBaseDto> findAll();
     void save(long id, AccountCreationDto creationDto);

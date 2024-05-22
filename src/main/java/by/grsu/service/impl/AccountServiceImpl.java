@@ -19,6 +19,11 @@ public class AccountServiceImpl implements AccountService { //todo add optional 
     private final AccountRepository accountRepository;
 
     @Override
+    public AccountFullDto findByLogin(String login) {
+        return AccountDtoMapper.convertEntityToFullDto(accountRepository.findByLogin(login));
+    }
+
+    @Override
     public AccountFullDto findById(long id) {
         return AccountDtoMapper.convertEntityToFullDto(accountRepository.findById(id));
     }

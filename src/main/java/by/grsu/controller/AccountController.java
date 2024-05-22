@@ -31,6 +31,11 @@ public class AccountController {
         return accountService.findById(id);
     }
 
+    @GetMapping("/login/{login}")
+    public AccountFullDto findByLogin(@PathVariable String login){
+        return accountService.findByLogin(login);
+    }
+
     @PostMapping("/{id}")
     public void save(@PathVariable long id, @RequestBody AccountCreationDto creationDto){
         accountService.save(id, creationDto);
