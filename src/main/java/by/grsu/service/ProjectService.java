@@ -1,5 +1,6 @@
 package by.grsu.service;
 
+import by.grsu.dto.project.ProjectAddMemberDto;
 import by.grsu.dto.project.ProjectBaseDto;
 import by.grsu.dto.project.ProjectCreationDto;
 import by.grsu.dto.project.ProjectFullDto;
@@ -11,6 +12,7 @@ public interface ProjectService {
     List<ProjectBaseDto> findAllWorkingProjects(long accountId);
     ProjectFullDto findById(long id);
     void saveOwn(ProjectCreationDto creationDto);
+    void addMemberToProject(ProjectAddMemberDto addMemberDto);
     void deleteById(long id);
 
 }

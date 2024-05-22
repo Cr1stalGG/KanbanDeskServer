@@ -1,6 +1,7 @@
 package by.grsu.service.impl;
 
 import by.grsu.dto.mapper.ProjectDtoMapper;
+import by.grsu.dto.project.ProjectAddMemberDto;
 import by.grsu.dto.project.ProjectBaseDto;
 import by.grsu.dto.project.ProjectCreationDto;
 import by.grsu.dto.project.ProjectFullDto;
@@ -11,6 +12,7 @@ import by.grsu.repository.ProjectRepository;
 import by.grsu.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @Transactional
     public void saveOwn(ProjectCreationDto creationDto) {
         Account account = accountRepository.findById(creationDto.getAccountId());
 
@@ -52,7 +55,20 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void deleteById(long id) {
+    @Transactional
+    public void addMemberToProject(ProjectAddMemberDto addMemberDto) {
+        Account account = accountRepository.findById(addMemberDto.getAccountId());
 
+        Project project = projectRepository.findById(addMemberDto.getProjectId());
+        project.getMembers().add(account);
+        projectRepository.save(project);
+
+        account.getOwnProjects().add(project);
+        accountRepository.save(account);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        projectRepository.deleteById(id);
     }
 }

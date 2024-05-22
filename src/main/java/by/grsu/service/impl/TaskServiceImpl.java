@@ -1,6 +1,7 @@
 package by.grsu.service.impl;
 
 import by.grsu.dto.mapper.TaskDtoMapper;
+import by.grsu.dto.task.MoveTaskDto;
 import by.grsu.dto.task.TaskCreationDto;
 import by.grsu.entity.Panel;
 import by.grsu.entity.Task;
@@ -32,5 +33,16 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void deleteById(long id) {
         taskRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void moveTask(MoveTaskDto moveTaskDto) {
+        Task task = taskRepository.findById(moveTaskDto.getTaskId());
+
+        Panel fromPanel = panelRepository.findById(moveTaskDto.getFromPanelId());
+        Panel toPanel = panelRepository.findById(moveTaskDto.getToPanelId());
+
+        fromPanel.
     }
 }

@@ -1,5 +1,6 @@
 package by.grsu.repository;
 
+import by.grsu.dto.task.MoveTaskDto;
 import by.grsu.entity.Panel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
