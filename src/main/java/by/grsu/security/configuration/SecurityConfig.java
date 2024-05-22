@@ -22,8 +22,8 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests().requestMatchers("api/v1/auth/*", "/swagger-ui/**", "/v3/api-docs/**").permitAll();
-        http.authorizeHttpRequests().requestMatchers("api/v1/accounts/*").hasAuthority(String.valueOf(Role.ROLE_USER));
+        http.authorizeHttpRequests().requestMatchers("api/v1/auth/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll();
+        http.authorizeHttpRequests().requestMatchers("api/v1/accounts/**").hasAuthority(String.valueOf(Role.ROLE_USER));
         //http.authorizeHttpRequests().requestMatchers("/admins/*").hasAuthority(String.valueOf(Role.ROLE_ADMIN));
         http.authorizeHttpRequests().anyRequest().authenticated();
         http.logout().logoutUrl("/logout");

@@ -1,5 +1,6 @@
 package by.grsu.controller;
 
+import by.grsu.dto.task.MoveTaskDto;
 import by.grsu.dto.task.TaskCreationDto;
 import by.grsu.service.TaskService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,11 @@ public class TaskController {
     @PostMapping
     public void save(@RequestBody TaskCreationDto creationDto){
         taskService.save(creationDto);
+    }
+
+    @PostMapping
+    public void moveTask(@RequestBody MoveTaskDto moveTaskDto){
+        taskService.moveTask(moveTaskDto);
     }
 
     @DeleteMapping("/{id}")

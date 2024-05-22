@@ -1,5 +1,6 @@
 package by.grsu.controller;
 
+import by.grsu.dto.project.ProjectAddMemberDto;
 import by.grsu.dto.project.ProjectBaseDto;
 import by.grsu.dto.project.ProjectCreationDto;
 import by.grsu.dto.project.ProjectFullDto;
@@ -39,6 +40,11 @@ public class ProjectController {
     @PostMapping
     public void save(@RequestBody ProjectCreationDto creationDto){
         projectService.saveOwn(creationDto);
+    }
+
+    @PostMapping("/add")
+    public void addMember(@RequestBody ProjectAddMemberDto addMemberDto){
+        projectService.addMemberToProject(addMemberDto);
     }
 
     @DeleteMapping("/{id}")
