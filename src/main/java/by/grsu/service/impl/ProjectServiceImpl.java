@@ -44,6 +44,7 @@ public class ProjectServiceImpl implements ProjectService {
         Account account = accountRepository.findById(creationDto.getAccountId());
 
         Project project = ProjectDtoMapper.convertDtoToEntity(creationDto);
+        project.setOwner(account);
         projectRepository.save(project);
 
         account.getOwnProjects().add(project);
