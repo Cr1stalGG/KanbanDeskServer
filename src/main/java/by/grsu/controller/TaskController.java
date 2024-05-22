@@ -22,7 +22,7 @@ public class TaskController {
         taskService.save(creationDto);
     }
 
-    @PostMapping
+    @PostMapping("/move")
     public void moveTask(@RequestBody MoveTaskDto moveTaskDto){
         taskService.moveTask(moveTaskDto);
     }
