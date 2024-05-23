@@ -5,7 +5,7 @@ COPY mvnw .
 COPY pom.xml .
 COPY src src
 
-RUN .mvnw -B package
+RUN .mvnw -B clean package
 
 FROM openjdk:20
 
